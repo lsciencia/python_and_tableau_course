@@ -61,7 +61,7 @@ def keywordFlag(keyword):
         
     return keyword_flag
 
-keywordflag = keywordFlag('support')
+keywordflag = keywordFlag('murder')
 data['keyword_flag'] = pd.Series(keywordflag)
 
 #sentiment intensity analyzer
@@ -74,9 +74,9 @@ title_neg_sentiment = []
 title_pos_sentiment = []
 title_neu_sentiment = []
 
+sent_int = SentimentIntensityAnalyzer()
 for i in range(0, len(data)):
     try:
-        sent_int = SentimentIntensityAnalyzer()
         sent = sent_int.polarity_scores(data['title'][i])    
         title_neg_sentiment.append(sent['neg'])
         title_pos_sentiment.append(sent['pos'])
